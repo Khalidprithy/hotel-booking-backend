@@ -15,7 +15,7 @@ dotenv.config();
 
 const connect = async () => {
     try {
-        await mongoose.connect(process.env.MONGO);
+        await mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.j2m70h0.mongodb.net/booking?retryWrites=true&w=majority`);
         console.log("Connected to MongoDB")
     } catch (error) {
         handleError(error);
@@ -29,8 +29,11 @@ mongoose.connection.on("connected", () => {
     console.log("MongoDB connected")
 })
 
-app.get('/hello', (req, res) => {
-    res.send('Hello')
+app.get('/', (req, res) => {
+    res.send('Hello, Hotel booking server')
+})
+app.get('/hi', (req, res) => {
+    res.send('hi, Hotel booking server')
 })
 
 
