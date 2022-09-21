@@ -32,7 +32,7 @@ mongoose.connection.on("connected", () => {
 app.get('/', (req, res) => {
     res.send('Hello, Hotel booking server')
 })
-app.get('/hi', (req, res) => {
+app.get('/hotel', (req, res) => {
     res.send('hi, Hotel booking server')
 })
 
@@ -64,3 +64,7 @@ app.listen(5000, () => {
     connect()
     console.log("Server running")
 })
+
+
+
+// https://hotel-booking-server.onrender.com/
